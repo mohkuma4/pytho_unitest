@@ -9,7 +9,7 @@ class TestCalc(unittest.TestCase):
 
 
     def test_multiply(self):
-        self.assertEqual(calc.multiply(10, 5), 15)
+        self.assertEqual(calc.multiply(10, 5), 50)
 
     def test_divide(self):
         self.assertEqual(calc.multiply(10, 5), 4)
