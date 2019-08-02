@@ -11,6 +11,10 @@ class TestCalc(unittest.TestCase):
     def test_multiply(self):
         self.assertEqual(calc.multiply(10, 5), 15)
 
+    def test_divide(self):
+        self.assertEqual(calc.multiply(10, 5), 4)
+
+
 
 
 if __name__ == '__main__':
