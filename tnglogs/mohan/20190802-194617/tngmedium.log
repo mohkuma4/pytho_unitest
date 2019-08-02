@@ -1,0 +1,35 @@
+2019-08-02 19:46:17.053 IST: [tng] {INFO} TNG logdirectory='/home/mohan/pytho_unitest/tnglogs/mohan/20190802-194617'
+2019-08-02 19:46:17.055 IST: [tng] {INFO} Starting TNG pi version=v3.7.16-72-g6b36c2333 (Python 2.7.15)
+2019-08-02 19:46:17.055 IST: [tng] {WARNING} Python 2 is entering its last year of official support. TNGpi recommends Python 3.6 or newer!
+2019-08-02 19:46:17.056 IST: [tng] {INFO} Please give Python 3.6+ a try, and report any issues you should find!
+2019-08-02 19:46:17.068 IST: [TestFramework] {INFO} Starting TNG test 'SingleFileTestScript.test_add'
+2019-08-02 19:46:17.069 IST: [TestFramework] {INFO} Test Success test_add (test_calc.SingleFileTestScript)
+2019-08-02 19:46:17.071 IST: [TestFramework] {DEBUG} Stopping TNG test 'SingleFileTestScript.test_add'
+2019-08-02 19:46:17.071 IST: [TestFramework] {INFO} Starting TNG test 'SingleFileTestScript.test_divide'
+2019-08-02 19:46:17.124 IST: [TestFramework] {ERROR} Test Failure test_divide (test_calc.SingleFileTestScript)
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/unittest/case.py", line 329, in run
+    testMethod()
+  File "test_calc.py", line 38, in test_divide
+    self.assertEqual(calc.multiply(10, 5), 4)
+  File "/usr/lib/python2.7/unittest/case.py", line 513, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python2.7/unittest/case.py", line 506, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 50 != 4
+
+2019-08-02 19:46:17.125 IST: [TestFramework] {DEBUG} Stopping TNG test 'SingleFileTestScript.test_divide'
+2019-08-02 19:46:17.126 IST: [TestFramework] {INFO} Starting TNG test 'SingleFileTestScript.test_multiply'
+2019-08-02 19:46:17.127 IST: [TestFramework] {INFO} Test Success test_multiply (test_calc.SingleFileTestScript)
+2019-08-02 19:46:17.128 IST: [TestFramework] {DEBUG} Stopping TNG test 'SingleFileTestScript.test_multiply'
+2019-08-02 19:46:17.139 IST: [TestFramework] {INFO} Writing HTML test report to ./tnglogs/mohan/20190802-194617/results.html
+2019-08-02 19:46:17.636 IST: [TestFramework] {INFO} 
+==================================================
+Test run completed in 0 secs
+Results:
+                   |  Passed |  Failed | Skipped
+Tests              |       2 |       1 |       0
+Media              |         |       0 |
+==================================================
+2019-08-02 19:46:17.647 IST: [tng] {INFO} Stopping TNG pi
+2019-08-02 19:46:17.650 IST: [tng] {INFO} TNG logdirectory='/home/mohan/pytho_unitest/tnglogs/mohan/20190802-194617'

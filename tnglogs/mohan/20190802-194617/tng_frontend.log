@@ -1,0 +1,6 @@
+2019-08-02 19:46:17.053 IST: [tng] {INFO} TNG logdirectory='/home/mohan/pytho_unitest/tnglogs/mohan/20190802-194617'
+2019-08-02 19:46:17.055 IST: [tng] {INFO} Starting TNG pi version=v3.7.16-72-g6b36c2333 (Python 2.7.15)
+2019-08-02 19:46:17.055 IST: [tng] {WARNING} Python 2 is entering its last year of official support. TNGpi recommends Python 3.6 or newer!
+2019-08-02 19:46:17.056 IST: [tng] {INFO} Please give Python 3.6+ a try, and report any issues you should find!
+2019-08-02 19:46:17.647 IST: [tng] {INFO} Stopping TNG pi
+2019-08-02 19:46:17.650 IST: [tng] {INFO} TNG logdirectory='/home/mohan/pytho_unitest/tnglogs/mohan/20190802-194617'

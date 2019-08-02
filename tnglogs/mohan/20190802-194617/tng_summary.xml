@@ -1,0 +1,1 @@
+<?xml version="1.0" ?><test><name>test_calc.py</name><start_time><posix>1564755377</posix><utc>2019-08-02 14:16:17</utc></start_time><duration>0.0609939098358</duration><result><status>Failed</status><media><failed>0</failed></media><tests><total>3</total><succeeded>2</succeeded><void>0</void><failed>1</failed><skipped>0</skipped></tests></result></test>

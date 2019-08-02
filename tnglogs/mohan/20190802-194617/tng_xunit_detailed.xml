@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<testsuite errors="0" failures="1" name="test_calc.py" skipped="0" tests="3">
+	<testcase classname="SingleFileTestScript" name="test_add"/>
+	<testcase classname="SingleFileTestScript" name="test_divide">
+		<error>fail</error>
+	</testcase>
+	<testcase classname="SingleFileTestScript" name="test_multiply"/>
+</testsuite>
