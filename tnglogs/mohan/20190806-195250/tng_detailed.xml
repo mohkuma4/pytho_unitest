@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<testfile name="test_calc.py">
+	<total>3</total>
+	<successes>3</successes>
+	<failures/>
+	<errors/>
+	<skipped/>
+	<testcases>
+		<testcase name="SingleFileTestScript">
+			<successes>3</successes>
+			<failures/>
+			<errors/>
+			<skipped/>
+			<unexpected_successes/>
+			<expected_failures/>
+			<testmethod name="test_add">
+				<result>success</result>
+				<traceback/>
+			</testmethod>
+			<testmethod name="test_divide">
+				<result>success</result>
+				<traceback/>
+			</testmethod>
+			<testmethod name="test_multiply">
+				<result>success</result>
+				<traceback/>
+			</testmethod>
+		</testcase>
+	</testcases>
+</testfile>

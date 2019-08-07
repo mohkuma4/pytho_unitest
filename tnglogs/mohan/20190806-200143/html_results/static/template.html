@@ -1,0 +1,409 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="${static_dir}jquery.min.js"></script>
+        <script type="text/javascript" src="${static_dir}bootstrap.min.js"></script>
+        <script type="text/javascript" src="${static_dir}highlight/highlight.pack.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript">MochiKit = {__export__: false};</script>
+        <script type="text/javascript" src="${static_dir}MochiKit/MochiKit.js"></script>
+        <script type="text/javascript" src="${static_dir}helper.js"></script>
+        <link type="text/css" rel="stylesheet" href="${static_dir}bootstrap-combined.min.css" />
+        <link type="text/css" rel="stylesheet" href="${static_dir}font-awesome.css" />
+        <link type="text/css" rel="stylesheet" href="${static_dir}highlight/tomorrow.css" />
+        <style type="text/css">
+            .accordion-group.success {
+            }
+            .accordion-group.fail {
+                background-color: #FFA6A6;
+            }
+            .accordion-group.skip {
+                background-color: #FFF0B2;
+            }
+            .accordion-inner {
+                background-color: white;
+            }
+            .label {
+                vertical-align: middle;
+            }
+            code {
+                font-size: 100%;
+            }
+            .form-inline .logger_button {
+                margin-bottom: 4px;
+            }
+            .logger_buttons {
+                width: 90%;
+                float: left;
+            }
+            .logger_button_label {
+                float: left;
+                margin-right: 4px;
+            }
+        </style>
+        <title>TestSuite - Results</title> <!-- FIXME: Include py filename -->
+    </head>
+    <body onload="on_page_load();">
+        <div class="container">
+            <ul class="nav nav-tabs">
+%for i, testcase in enumerate(testcases):
+    %if i==0:
+                <li class="active">
+    %else:
+                <li>
+    %endif
+                    <a href="#${testcase.name}_content" data-toggle="tab">
+    %if testcase.failures or testcase.errors or testcase.unexpected_successes:
+                        <h3>${testcase.name}
+                            <label class="label label-important">Fail</label>
+                        </h3>
+    %elif testcase.skipped:
+                        <h3>${testcase.name}
+                            <label class="label label-warning">Skip</label>
+                        </h3>
+    %else:
+                        <h3>${testcase.name}</h3>
+    %endif
+                    </a>
+                </li>
+%endfor
+%if devices:
+                <li>
+                    <a href="#device_table" data-toggle="tab">
+                        <h3>Devices</h3>
+                    </a>
+                </li>
+%endif
+%if applitools:
+                <li>
+                    <a href="#applitools_table" data-toggle="tab">
+                        <h3>Applitools Results</h3>
+                    </a>
+                </li>
+%endif
+            </ul>
+            <div class="tab-content">
+%for i, testcase in enumerate(testcases):
+                <div
+    %if i==0:
+                        class="tab-pane active"
+    %else:
+                        class="tab-pane"
+    %endif
+                        id="${testcase.name}_content">
+                    <table class="table well">
+                        <tr>
+                            <td><strong>Successes:</strong> ${testcase.successes + testcase.expected_failures}</td>
+                            <td><strong>Failures:</strong> ${testcase.failures + testcase.errors + testcase.unexpected_successes}</td>
+                            <td><strong>Skipped:</strong> ${testcase.skipped}</td>
+                        </tr>
+                    </table>
+                    <div class=accordion id="${testcase.name}_accordion">
+    %for j, test in enumerate(testcase.tests):
+        <%
+        test_id = '_'.join(testcase.name.split() + test.name.split())
+        if test.result == 'success':
+            label_text = ''
+            label_class = ''
+            accordion_heading_class = ''
+        elif test.result == 'skip':
+            label_text = 'Skip'
+            label_class = 'label-warning'
+            accordion_heading_class = 'skip'
+        elif test.result == 'expected failure':
+            label_text = 'Expected Failure'
+            label_class = 'label-warning'
+            accordion_heading_class = 'skip'
+        elif test.result == 'unexpected success':
+            label_text = 'Unexpected Success'
+            label_class = 'label-important'
+            accordion_heading_class = 'fail'
+        else:
+            label_text = 'Fail'
+            label_class = 'label-important'
+            accordion_heading_class = 'fail'
+        first_printable_char = list(map(str.isspace, str(test.code))).index(False)
+        code = '\n'.join([line[first_printable_char:] for line in test.code.splitlines()])
+        %>
+                        <div class="accordion-group ${accordion_heading_class}">
+                            <div class="accordion-heading">
+                                <h4 class="accordion-toggle"
+                                        data-parent="#${testcase.name}_accordion"
+                                        data-toggle="collapse"
+                                        href="#${test_id}_content"
+                                        id="${test_id}_accordion_heading"
+                                        onclick="on_accordion_heading_click(this);">
+                                    ${test.name}
+        %if test.result != 'success':
+                                    <span class="label ${label_class}">${label_text}</span>
+        %endif
+                                 </h4>
+                            </div> <!-- /accordion-heading -->
+                            <div
+                                    class="accordion-body collapse"
+                                    id="${test_id}_content">
+                                <div class="accordion-inner">
+        %if test.description:
+                                    <pre>${test.description}</pre>
+        %endif
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#${test_id}_log_content"
+                                                    data-toggle="tab">
+                                                Logs
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#${test_id}_source_content"
+                                                    data-toggle="tab">
+                                                Source
+                                            </a>
+                                        </li>
+        %if test.traceback is not None:
+                                        <li>
+                                            <a href="#${test_id}_traceback_content"
+                                                    data-toggle="tab">
+                                                Traceback
+                                            </a>
+                                        </li>
+        %endif
+        %if len(test.images):
+                                        <li>
+                                            <a href="#${test_id}_image_content"
+                                                    data-toggle="tab">
+                                                Image
+                                            </a>
+                                        </li>
+        %endif
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active"
+                                                id="${test_id}_log_content">
+                                            <form class="form-inline"
+                                                    id="${test_id}_form">
+                                                <div class="row-fluid">
+                                                    <div class="span9 logger_button_container">
+                                                        <label class="control-label logger_button_label">
+                                                            Loggers:
+                                                        </label>
+                                                        <div class="logger_buttons"
+                                                                id="${test_id}_logger_buttons">
+    %for logger in loggers:
+                                                            <input type="button"
+                                                                    class="btn logger_button active"
+                                                                    value="${logger}"
+                                                                    onclick="on_logger_button_click(this);" />
+    %endfor
+                                                        </div>
+                                                    </div> <!-- /span9 -->
+                                                    <div class="span3 text-right">
+                                                        <label class="control-label">
+                                                            Level:
+                                                            <select class="loglevel"
+                                                                    id="${test_id}_level_select"
+                                                                    onchange="on_log_level_change(this);">
+                                                                <option value="DEBUG">debug</option>
+                                                                <option value="INFO" selected="true">info</option>
+                                                                <option value="WARNING">warning</option>
+                                                                <option value="ERROR">error</option>
+                                                                <option value="CRITICAL">critical</option>
+                                                            </select>
+                                                        </label>
+                                                        <br />
+                                                        <label class="control-label"
+                                                                for="${test_id}_logger_control_buttons">
+                                                            Select:
+                                                            <div class="btn-group"
+                                                                    id="${test_id}_logger_control_buttons">
+                                                                <input type="button"
+                                                                        class="btn"
+                                                                        value="All"
+                                                                        onclick="on_all_click(this);" />
+                                                                <input type="button"
+                                                                        class="btn"
+                                                                        value="None"
+                                                                        onclick="on_none_click(this);" />
+                                                            </div> <!-- /btn-group -->
+                                                        </label>
+                                                    </div> <!-- /span3 -->
+                                                </div> <!-- /row-fluid -->
+                                            </form>
+                                            <table class="table table-hover"
+                                                    id="${test_id}_log_table_content"
+                                                    data-start="${repr(test.start)}"
+                                                    data-stop="${repr(test.stop)}">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Logger</th>
+                                                        <th>Level</th>
+                                                        <th>Time</th>
+                                                        <th>Message</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- /tab-pane log_content -->
+                                        <div class="tab-pane"
+                                                id="${test_id}_source_content">
+                                            <pre><code>${code}</code></pre>
+                                        </div> <!-- /tab-pane source_content -->
+        %if test.traceback is not None:
+                                        <div class="tab-pane"
+                                                id="${test_id}_traceback_content">
+                                            <pre>${''.join(test.traceback)}</pre>
+                                        </div> <!-- /tab-pane source_content -->
+        %endif
+        %if len(test.images):
+                                        <div class="tab-pane"
+                                                id="${test_id}_image_content">
+            %for image, title in test.images:
+                                            <img src="${image}" title="${title}" /><br />
+            %endfor
+                                        </div> <!-- /tab-pane source_content -->
+        %endif
+                                    </div> <!-- /tab-content -->
+                                </div> <!-- /accordion-inner -->
+                            </div> <!-- /accordion-body ${test_id} -->
+                        </div> <!-- /accordion-group -->
+    %endfor
+                    </div> <!-- /${testcase.name}_accordion} -->
+                </div> <!-- /tab-pane ${testcase.name} -->
+%endfor
+%if devices:
+                <div class="tab-pane" id="device_table">
+                    <table class="table table-hover">
+                        <thead>
+                            <th>Symbolic name</th>
+                            <th>Device name</th>
+                            <th>IP address</th>
+                            <th>Hardware</th>
+                            <th>SW version string</th>
+                            <th>SW branch</th>
+                            <th>SW revision</th>
+                            <th>Log directory</th>
+                        </thead>
+                        <tbody>
+    %for device in sorted(devices, key=lambda d: str(d['setup_file_name'])):
+        <%
+        import os.path
+        device_log_relpath = os.path.relpath(device['log_storage_directory'], log_dir)
+        device_log_dirname = os.path.basename(os.path.normpath(device_log_relpath))
+        %>
+                            <tr>
+        %try:
+                                <td>${device['setup_file_name']}</td>
+                                <td>${device['system_name']}</td>
+                                <td>${device['address']}</td>
+                                <td>${device['hardware']}</td>
+                                <td>${device['software']}</td>
+                                <td>${device['branch']}</td>
+                                <td>${device['revision']}</td>
+                                <td><a href="${device_log_relpath}">${device_log_dirname}</a></td>
+        %except Exception as e:
+                                <td colspan="8">Error: ${e.message}</td>
+        %endtry
+                            </tr>
+    %endfor
+                        </tbody>
+                    </table>
+                </div> <!-- /tab-pane Devices -->
+%endif
+
+%if applitools:
+                <div class="tab-pane" id="applitools_table">
+                    <div class=accordion id="${testcase.name}_applitools_accordion">
+                        %if not applitools['failures']:
+                        <div class="accordion-heading">
+                            <h4>
+                                No errors reported from Applitools
+                            </h4>
+                        </div> <!-- /accordion-heading -->
+                        %endif
+                        <div class="accordion-heading">
+                            <table class="table well">
+                                <tr>
+                                    <td><strong><a href="${applitools['results_url']}"/>See full Applitools results</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                        %if applitools['failures']:
+                            %for fail in applitools['failures']:
+                                <%
+                                for key in fail:
+                                    test_name = key
+                                %>
+                        <div class="accordion-group ${accordion_heading_class}">
+                            <div class="accordion-heading">
+                                <h4 class="accordion-toggle"
+                                    data-parent="#${test_name}_accordion"
+                                    data-toggle="collapse"
+                                    href="#${test_name}_content"
+                                    id="${test_name}_accordion_heading"
+                                    onclick="on_accordion_heading_click(this);">
+                                    ${test_name}
+                                </h4>
+                            </div> <!-- /accordion-heading -->
+                            <div
+                                    class="accordion-body collapse"
+                                    id="${test_name}_content">
+                                <div class="accordion-inner">
+                                    %for step in fail[test_name]:
+                                        <%
+                                        step_name = step['step']
+                                        diff_path = step['diff']
+                                        baseline_path = step['baseline']
+                                        step_id = test_name + '_' + step['css_attribute_name']
+                                        %>
+                                    <div class=accordion id="${step_id}_accordion">
+                                        <div class="accordion-group ${accordion_heading_class}">
+                                            <div class="accordion-heading">
+                                                <h4 class="accordion-toggle"
+                                                    data-parent="#${step_id}_accordion"
+                                                    data-toggle="collapse"
+                                                    href="#${step_id}_content"
+                                                    id="${step_id}_accordion_heading"
+                                                    onclick="on_accordion_heading_click(this);">
+                                                    ${step_name}
+                                                </h4>
+                                            </div> <!-- /accordion-heading -->
+                                            <div
+                                                    class="accordion-body collapse"
+                                                    id="${step_id}_content">
+                                                <div class="accordion-inner">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                %if baseline_path:
+                                                                <th>
+                                                                    <h4>BASELINE</h4>
+                                                                    <img alt="baseline" src="${baseline_path}">
+                                                                </th>
+                                                                %endif
+                                                                %if diff_path:
+                                                                <th>
+                                                                    <h4>DIFF</h4>
+                                                                    <img alt="diff" src="${diff_path}">
+                                                                </th>
+                                                                %endif
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                    %endfor
+                                </div>
+                            </div>
+                        </div>
+                    %endfor
+                    %endif
+                    </div>
+                </div> <!-- /applitools-tab -->
+                %endif
+            </div> <!-- /tab-content -->
+        </div> <!-- /container -->
+    </body>
+</html>

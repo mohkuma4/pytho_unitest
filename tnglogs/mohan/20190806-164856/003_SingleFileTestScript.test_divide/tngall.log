@@ -1,0 +1,13 @@
+2019-08-06 16:48:56.330 IST: [TestFramework] {INFO} Starting TNG test 'SingleFileTestScript.test_divide'
+2019-08-06 16:48:56.332 IST: [TestFramework] {ERROR} Test Failure test_divide (test_calc.SingleFileTestScript)
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/unittest/case.py", line 329, in run
+    testMethod()
+  File "test_calc.py", line 38, in test_divide
+    self.assertEqual(calc.multiply(10, 5), 2)
+  File "/usr/lib/python2.7/unittest/case.py", line 513, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python2.7/unittest/case.py", line 506, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 50 != 2
+

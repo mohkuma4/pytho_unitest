@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="html_results/static/jquery.min.js"></script>
+        <script type="text/javascript" src="html_results/static/bootstrap.min.js"></script>
+        <script type="text/javascript" src="html_results/static/highlight/highlight.pack.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript">MochiKit = {__export__: false};</script>
+        <script type="text/javascript" src="html_results/static/MochiKit/MochiKit.js"></script>
+        <script type="text/javascript" src="html_results/static/helper.js"></script>
+        <link type="text/css" rel="stylesheet" href="html_results/static/bootstrap-combined.min.css" />
+        <link type="text/css" rel="stylesheet" href="html_results/static/font-awesome.css" />
+        <link type="text/css" rel="stylesheet" href="html_results/static/highlight/tomorrow.css" />
+        <style type="text/css">
+            .accordion-group.success {
+            }
+            .accordion-group.fail {
+                background-color: #FFA6A6;
+            }
+            .accordion-group.skip {
+                background-color: #FFF0B2;
+            }
+            .accordion-inner {
+                background-color: white;
+            }
+            .label {
+                vertical-align: middle;
+            }
+            code {
+                font-size: 100%;
+            }
+            .form-inline .logger_button {
+                margin-bottom: 4px;
+            }
+            .logger_buttons {
+                width: 90%;
+                float: left;
+            }
+            .logger_button_label {
+                float: left;
+                margin-right: 4px;
+            }
+        </style>
+        <title>TestSuite - Results</title> <!-- FIXME: Include py filename -->
+    </head>
+    <body onload="on_page_load();">
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#SingleFileTestScript_content" data-toggle="tab">
+                        <h3>SingleFileTestScript
+                            <label class="label label-important">Fail</label>
+                        </h3>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div
+                        class="tab-pane active"
+                        id="SingleFileTestScript_content">
+                    <table class="table well">
+                        <tr>
+                            <td><strong>Successes:</strong> 2</td>
+                            <td><strong>Failures:</strong> 1</td>
+                            <td><strong>Skipped:</strong> 0</td>
+                        </tr>
+                    </table>
+                    <div class=accordion id="SingleFileTestScript_accordion">
+        
+                        <div class="accordion-group ">
+                            <div class="accordion-heading">
+                                <h4 class="accordion-toggle"
+                                        data-parent="#SingleFileTestScript_accordion"
+                                        data-toggle="collapse"
+                                        href="#SingleFileTestScript_test_add_content"
+                                        id="SingleFileTestScript_test_add_accordion_heading"
+                                        onclick="on_accordion_heading_click(this);">
+                                    test_add
+                                 </h4>
+                            </div> <!-- /accordion-heading -->
+                            <div
+                                    class="accordion-body collapse"
+                                    id="SingleFileTestScript_test_add_content">
+                                <div class="accordion-inner">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#SingleFileTestScript_test_add_log_content"
+                                                    data-toggle="tab">
+                                                Logs
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#SingleFileTestScript_test_add_source_content"
+                                                    data-toggle="tab">
+                                                Source
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active"
+                                                id="SingleFileTestScript_test_add_log_content">
+                                            <form class="form-inline"
+                                                    id="SingleFileTestScript_test_add_form">
+                                                <div class="row-fluid">
+                                                    <div class="span9 logger_button_container">
+                                                        <label class="control-label logger_button_label">
+                                                            Loggers:
+                                                        </label>
+                                                        <div class="logger_buttons"
+                                                                id="SingleFileTestScript_test_add_logger_buttons">
+                                                            <input type="button"
+                                                                    class="btn logger_button active"
+                                                                    value="TestFramework"
+                                                                    onclick="on_logger_button_click(this);" />
+                                                        </div>
+                                                    </div> <!-- /span9 -->
+                                                    <div class="span3 text-right">
+                                                        <label class="control-label">
+                                                            Level:
+                                                            <select class="loglevel"
+                                                                    id="SingleFileTestScript_test_add_level_select"
+                                                                    onchange="on_log_level_change(this);">
+                                                                <option value="DEBUG">debug</option>
+                                                                <option value="INFO" selected="true">info</option>
+                                                                <option value="WARNING">warning</option>
+                                                                <option value="ERROR">error</option>
+                                                                <option value="CRITICAL">critical</option>
+                                                            </select>
+                                                        </label>
+                                                        <br />
+                                                        <label class="control-label"
+                                                                for="SingleFileTestScript_test_add_logger_control_buttons">
+                                                            Select:
+                                                            <div class="btn-group"
+                                                                    id="SingleFileTestScript_test_add_logger_control_buttons">
+                                                                <input type="button"
+                                                                        class="btn"
+                                                                        value="All"
+                                                                        onclick="on_all_click(this);" />
+                                                                <input type="button"
+                                                                        class="btn"
+                                                                        value="None"
+                                                                        onclick="on_none_click(this);" />
+                                                            </div> <!-- /btn-group -->
+                                                        </label>
+                                                    </div> <!-- /span3 -->
+                                                </div> <!-- /row-fluid -->
+                                            </form>
+                                            <table class="table table-hover"
+                                                    id="SingleFileTestScript_test_add_log_table_content"
+                                                    data-start="1565090309.700881"
+                                                    data-stop="1565090309.704295">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Logger</th>
+                                                        <th>Level</th>
+                                                        <th>Time</th>
+                                                        <th>Message</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- /tab-pane log_content -->
+                                        <div class="tab-pane"
+                                                id="SingleFileTestScript_test_add_source_content">
+                                            <pre><code>def test_add(self):
+    self.assertEqual(calc.add(10, 5), 15)</code></pre>
+                                        </div> <!-- /tab-pane source_content -->
+                                    </div> <!-- /tab-content -->
+                                </div> <!-- /accordion-inner -->
+                            </div> <!-- /accordion-body SingleFileTestScript_test_add -->
+                        </div> <!-- /accordion-group -->
+        
+                        <div class="accordion-group fail">
+                            <div class="accordion-heading">
+                                <h4 class="accordion-toggle"
+                                        data-parent="#SingleFileTestScript_accordion"
+                                        data-toggle="collapse"
+                                        href="#SingleFileTestScript_test_divide_content"
+                                        id="SingleFileTestScript_test_divide_accordion_heading"
+                                        onclick="on_accordion_heading_click(this);">
+                                    test_divide
+                                    <span class="label label-important">Fail</span>
+                                 </h4>
+                            </div> <!-- /accordion-heading -->
+                            <div
+                                    class="accordion-body collapse"
+                                    id="SingleFileTestScript_test_divide_content">
+                                <div class="accordion-inner">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#SingleFileTestScript_test_divide_log_content"
+                                                    data-toggle="tab">
+                                                Logs
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#SingleFileTestScript_test_divide_source_content"
+                                                    data-toggle="tab">
+                                                Source
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#SingleFileTestScript_test_divide_traceback_content"
+                                                    data-toggle="tab">
+                                                Traceback
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active"
+                                                id="SingleFileTestScript_test_divide_log_content">
+                                            <form class="form-inline"
+                                                    id="SingleFileTestScript_test_divide_form">
+                                                <div class="row-fluid">
+                                                    <div class="span9 logger_button_container">
+                                                        <label class="control-label logger_button_label">
+                                                            Loggers:
+                                                        </label>
+                                                        <div class="logger_buttons"
+                                                                id="SingleFileTestScript_test_divide_logger_buttons">
+                                                            <input type="button"
+                                                                    class="btn logger_button active"
+                                                                    value="TestFramework"
+                                                                    onclick="on_logger_button_click(this);" />
+                                                        </div>
+                                                    </div> <!-- /span9 -->
+                                                    <div class="span3 text-right">
+                                                        <label class="control-label">
+                                                            Level:
+                                                            <select class="loglevel"
+                                                                    id="SingleFileTestScript_test_divide_level_select"
+                                                                    onchange="on_log_level_change(this);">
+                                                                <option value="DEBUG">debug</option>
+                                                                <option value="INFO" selected="true">info</option>
+                                                                <option value="WARNING">warning</option>
+                                                                <option value="ERROR">error</option>
+                                                                <option value="CRITICAL">critical</option>
+                                                            </select>
+                                                        </label>
+                                                        <br />
+                                                        <label class="control-label"
+                                                                for="SingleFileTestScript_test_divide_logger_control_buttons">
+                                                            Select:
+                                                            <div class="btn-group"
+                                                                    id="SingleFileTestScript_test_divide_logger_control_buttons">
+                                                                <input type="button"
+                                                                        class="btn"
+                                                                        value="All"
+                                                                        onclick="on_all_click(this);" />
+                                                                <input type="button"
+                                                                        class="btn"
+                                                                        value="None"
+                                                                        onclick="on_none_click(this);" />
+                                                            </div> <!-- /btn-group -->
+                                                        </label>
+                                                    </div> <!-- /span3 -->
+                                                </div> <!-- /row-fluid -->
+                                            </form>
+                                            <table class="table table-hover"
+                                                    id="SingleFileTestScript_test_divide_log_table_content"
+                                                    data-start="1565090309.705099"
+                                                    data-stop="1565090309.719709">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Logger</th>
+                                                        <th>Level</th>
+                                                        <th>Time</th>
+                                                        <th>Message</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- /tab-pane log_content -->
+                                        <div class="tab-pane"
+                                                id="SingleFileTestScript_test_divide_source_content">
+                                            <pre><code>def test_divide(self):
+    self.assertEqual(calc.multiply(10, 5), 4)</code></pre>
+                                        </div> <!-- /tab-pane source_content -->
+                                        <div class="tab-pane"
+                                                id="SingleFileTestScript_test_divide_traceback_content">
+                                            <pre>Traceback (most recent call last):
+  File "/usr/lib/python2.7/unittest/case.py", line 329, in run
+    testMethod()
+  File "test_calc.py", line 38, in test_divide
+    self.assertEqual(calc.multiply(10, 5), 4)
+  File "/usr/lib/python2.7/unittest/case.py", line 513, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python2.7/unittest/case.py", line 506, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 50 != 4
+</pre>
+                                        </div> <!-- /tab-pane source_content -->
+                                    </div> <!-- /tab-content -->
+                                </div> <!-- /accordion-inner -->
+                            </div> <!-- /accordion-body SingleFileTestScript_test_divide -->
+                        </div> <!-- /accordion-group -->
+        
+                        <div class="accordion-group ">
+                            <div class="accordion-heading">
+                                <h4 class="accordion-toggle"
+                                        data-parent="#SingleFileTestScript_accordion"
+                                        data-toggle="collapse"
+                                        href="#SingleFileTestScript_test_multiply_content"
+                                        id="SingleFileTestScript_test_multiply_accordion_heading"
+                                        onclick="on_accordion_heading_click(this);">
+                                    test_multiply
+                                 </h4>
+                            </div> <!-- /accordion-heading -->
+                            <div
+                                    class="accordion-body collapse"
+                                    id="SingleFileTestScript_test_multiply_content">
+                                <div class="accordion-inner">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#SingleFileTestScript_test_multiply_log_content"
+                                                    data-toggle="tab">
+                                                Logs
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#SingleFileTestScript_test_multiply_source_content"
+                                                    data-toggle="tab">
+                                                Source
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active"
+                                                id="SingleFileTestScript_test_multiply_log_content">
+                                            <form class="form-inline"
+                                                    id="SingleFileTestScript_test_multiply_form">
+                                                <div class="row-fluid">
+                                                    <div class="span9 logger_button_container">
+                                                        <label class="control-label logger_button_label">
+                                                            Loggers:
+                                                        </label>
+                                                        <div class="logger_buttons"
+                                                                id="SingleFileTestScript_test_multiply_logger_buttons">
+                                                            <input type="button"
+                                                                    class="btn logger_button active"
+                                                                    value="TestFramework"
+                                                                    onclick="on_logger_button_click(this);" />
+                                                        </div>
+                                                    </div> <!-- /span9 -->
+                                                    <div class="span3 text-right">
+                                                        <label class="control-label">
+                                                            Level:
+                                                            <select class="loglevel"
+                                                                    id="SingleFileTestScript_test_multiply_level_select"
+                                                                    onchange="on_log_level_change(this);">
+                                                                <option value="DEBUG">debug</option>
+                                                                <option value="INFO" selected="true">info</option>
+                                                                <option value="WARNING">warning</option>
+                                                                <option value="ERROR">error</option>
+                                                                <option value="CRITICAL">critical</option>
+                                                            </select>
+                                                        </label>
+                                                        <br />
+                                                        <label class="control-label"
+                                                                for="SingleFileTestScript_test_multiply_logger_control_buttons">
+                                                            Select:
+                                                            <div class="btn-group"
+                                                                    id="SingleFileTestScript_test_multiply_logger_control_buttons">
+                                                                <input type="button"
+                                                                        class="btn"
+                                                                        value="All"
+                                                                        onclick="on_all_click(this);" />
+                                                                <input type="button"
+                                                                        class="btn"
+                                                                        value="None"
+                                                                        onclick="on_none_click(this);" />
+                                                            </div> <!-- /btn-group -->
+                                                        </label>
+                                                    </div> <!-- /span3 -->
+                                                </div> <!-- /row-fluid -->
+                                            </form>
+                                            <table class="table table-hover"
+                                                    id="SingleFileTestScript_test_multiply_log_table_content"
+                                                    data-start="1565090309.720452"
+                                                    data-stop="1565090309.722341">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Logger</th>
+                                                        <th>Level</th>
+                                                        <th>Time</th>
+                                                        <th>Message</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- /tab-pane log_content -->
+                                        <div class="tab-pane"
+                                                id="SingleFileTestScript_test_multiply_source_content">
+                                            <pre><code>def test_multiply(self):
+    self.assertEqual(calc.multiply(10, 5), 50)</code></pre>
+                                        </div> <!-- /tab-pane source_content -->
+                                    </div> <!-- /tab-content -->
+                                </div> <!-- /accordion-inner -->
+                            </div> <!-- /accordion-body SingleFileTestScript_test_multiply -->
+                        </div> <!-- /accordion-group -->
+                    </div> <!-- /SingleFileTestScript_accordion} -->
+                </div> <!-- /tab-pane SingleFileTestScript -->
+
+            </div> <!-- /tab-content -->
+        </div> <!-- /container -->
+    </body>
+</html>

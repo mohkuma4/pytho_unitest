@@ -1,0 +1,24 @@
+2019-08-06 16:49:43.104 IST: [tng] {INFO} TNG logdirectory='/home/mohan/pytho_unitest/tnglogs/mohan/20190806-164943'
+2019-08-06 16:49:43.105 IST: [tng] {INFO} Starting TNG pi version=v3.7.16-72-g6b36c2333 (Python 2.7.15)
+2019-08-06 16:49:43.106 IST: [tng] {WARNING} Python 2 is entering its last year of official support. TNGpi recommends Python 3.6 or newer!
+2019-08-06 16:49:43.107 IST: [tng] {INFO} Please give Python 3.6+ a try, and report any issues you should find!
+2019-08-06 16:49:43.136 IST: [TestFramework] {INFO} Starting TNG test 'SingleFileTestScript.test_add'
+2019-08-06 16:49:43.137 IST: [TestFramework] {INFO} Test Success test_add (test_calc.SingleFileTestScript)
+2019-08-06 16:49:43.140 IST: [TestFramework] {DEBUG} Stopping TNG test 'SingleFileTestScript.test_add'
+2019-08-06 16:49:43.155 IST: [TestFramework] {INFO} Starting TNG test 'SingleFileTestScript.test_divide'
+2019-08-06 16:49:43.156 IST: [TestFramework] {INFO} Test Success test_divide (test_calc.SingleFileTestScript)
+2019-08-06 16:49:43.157 IST: [TestFramework] {DEBUG} Stopping TNG test 'SingleFileTestScript.test_divide'
+2019-08-06 16:49:43.158 IST: [TestFramework] {INFO} Starting TNG test 'SingleFileTestScript.test_multiply'
+2019-08-06 16:49:43.158 IST: [TestFramework] {INFO} Test Success test_multiply (test_calc.SingleFileTestScript)
+2019-08-06 16:49:43.159 IST: [TestFramework] {DEBUG} Stopping TNG test 'SingleFileTestScript.test_multiply'
+2019-08-06 16:49:43.178 IST: [TestFramework] {INFO} Writing HTML test report to ./tnglogs/mohan/20190806-164943/results.html
+2019-08-06 16:49:43.235 IST: [TestFramework] {INFO} 
+==================================================
+Test run completed in 0 secs
+Results:
+                   |  Passed |  Failed | Skipped
+Tests              |       3 |       0 |       0
+Media              |         |       0 |
+==================================================
+2019-08-06 16:49:43.251 IST: [tng] {INFO} Stopping TNG pi
+2019-08-06 16:49:43.255 IST: [tng] {INFO} TNG logdirectory='/home/mohan/pytho_unitest/tnglogs/mohan/20190806-164943'

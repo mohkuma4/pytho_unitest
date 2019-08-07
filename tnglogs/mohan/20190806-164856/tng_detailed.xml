@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<testfile name="test_calc.py">
+	<total>3</total>
+	<successes>2</successes>
+	<failures>1</failures>
+	<errors/>
+	<skipped/>
+	<testcases>
+		<testcase name="SingleFileTestScript">
+			<successes>2</successes>
+			<failures>1</failures>
+			<errors/>
+			<skipped/>
+			<unexpected_successes/>
+			<expected_failures/>
+			<testmethod name="test_add">
+				<result>success</result>
+				<traceback/>
+			</testmethod>
+			<testmethod name="test_divide">
+				<result>fail</result>
+				<traceback>
+					<tracebackline>Traceback (most recent call last):
+</tracebackline>
+					<tracebackline>  File &quot;/usr/lib/python2.7/unittest/case.py&quot;, line 329, in run
+    testMethod()
+</tracebackline>
+					<tracebackline>  File &quot;test_calc.py&quot;, line 38, in test_divide
+    self.assertEqual(calc.multiply(10, 5), 2)
+</tracebackline>
+					<tracebackline>  File &quot;/usr/lib/python2.7/unittest/case.py&quot;, line 513, in assertEqual
+    assertion_func(first, second, msg=msg)
+</tracebackline>
+					<tracebackline>  File &quot;/usr/lib/python2.7/unittest/case.py&quot;, line 506, in _baseAssertEqual
+    raise self.failureException(msg)
+</tracebackline>
+					<tracebackline>AssertionError: 50 != 2
+</tracebackline>
+				</traceback>
+			</testmethod>
+			<testmethod name="test_multiply">
+				<result>success</result>
+				<traceback/>
+			</testmethod>
+		</testcase>
+	</testcases>
+</testfile>

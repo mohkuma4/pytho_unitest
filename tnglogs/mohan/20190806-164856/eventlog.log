@@ -1,0 +1,3 @@
+0.00:20,test_add (SingleFileTestScript),,,
+0.01:21,test_divide (SingleFileTestScript),,,AssertionError(50 != 2)
+0.01:20,test_multiply (SingleFileTestScript),,,

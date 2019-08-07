@@ -1,0 +1,13 @@
+2019-08-06 20:01:43.804 IST: [TestFramework] {INFO} Starting TNG test 'SingleFileTestScript.test_multiply'
+2019-08-06 20:01:43.804 IST: [TestFramework] {INFO} Test Success test_multiply (test_calc.SingleFileTestScript)
+2019-08-06 20:01:43.813 IST: [TestFramework] {INFO} Writing HTML test report to ./tnglogs/mohan/20190806-200143/results.html
+2019-08-06 20:01:43.854 IST: [TestFramework] {INFO} 
+==================================================
+Test run completed in 0 secs
+Results:
+                   |  Passed |  Failed | Skipped
+Tests              |       3 |       0 |       0
+Media              |         |       0 |
+==================================================
+2019-08-06 20:01:43.863 IST: [tng] {INFO} Stopping TNG pi
+2019-08-06 20:01:43.866 IST: [tng] {INFO} TNG logdirectory='/home/mohan/pytho_unitest/tnglogs/mohan/20190806-200143'

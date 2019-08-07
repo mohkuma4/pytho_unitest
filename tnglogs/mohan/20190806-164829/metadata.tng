@@ -1,0 +1,10 @@
+tng,version=v3.7.16-72-g6b36c2333,date=2019-07-23 22:09:33 +0000
+logversion,1.1
+python,2.7.15+ (default, Nov 27 2018, 23:36:35)  [GCC 7.3.0]
+starttime,1565090309.700575
+stoptime,1565090309.723090
+logdirectory,./tnglogs/mohan/20190806-164829
+org_setupfile,None
+org_runfile,test_calc.py
+runfile,scriptfiles/test_calc.py
+defines,

@@ -1,0 +1,91 @@
+{
+  "loggers": [
+    "TestFramework"
+  ], 
+  "metadata_version": 3, 
+  "test_summary": {
+    "unexpected_successes": 0, 
+    "skipped": 0, 
+    "successes": 2, 
+    "start_time": 1565090309.700575, 
+    "expected_failures": 0, 
+    "errors": 0, 
+    "stop_time": 1565090309.72309, 
+    "failures": 1, 
+    "total": 3
+  }, 
+  "testcases": [
+    {
+      "TestCaseInfo": {
+        "unexpected_successes": 0, 
+        "tests": [
+          {
+            "TestInfo": {
+              "code": "    def test_add(self):\n        self.assertEqual(calc.add(10, 5), 15)\n", 
+              "name": "test_add", 
+              "traceback": null, 
+              "stop": 1565090309.704295, 
+              "start": 1565090309.700881, 
+              "result": "success", 
+              "images": [], 
+              "description": ""
+            }
+          }, 
+          {
+            "TestInfo": {
+              "code": "    def test_divide(self):\n        self.assertEqual(calc.multiply(10, 5), 4)\n", 
+              "name": "test_divide", 
+              "traceback": [
+                "Traceback (most recent call last):\n", 
+                "  File \"/usr/lib/python2.7/unittest/case.py\", line 329, in run\n    testMethod()\n", 
+                "  File \"test_calc.py\", line 38, in test_divide\n    self.assertEqual(calc.multiply(10, 5), 4)\n", 
+                "  File \"/usr/lib/python2.7/unittest/case.py\", line 513, in assertEqual\n    assertion_func(first, second, msg=msg)\n", 
+                "  File \"/usr/lib/python2.7/unittest/case.py\", line 506, in _baseAssertEqual\n    raise self.failureException(msg)\n", 
+                "AssertionError: 50 != 4\n"
+              ], 
+              "stop": 1565090309.719709, 
+              "start": 1565090309.705099, 
+              "result": "fail", 
+              "images": [], 
+              "description": ""
+            }
+          }, 
+          {
+            "TestInfo": {
+              "code": "    def test_multiply(self):\n        self.assertEqual(calc.multiply(10, 5), 50)\n", 
+              "name": "test_multiply", 
+              "traceback": null, 
+              "stop": 1565090309.722341, 
+              "start": 1565090309.720452, 
+              "result": "success", 
+              "images": [], 
+              "description": ""
+            }
+          }
+        ], 
+        "skipped": 0, 
+        "name": "SingleFileTestScript", 
+        "successes": 2, 
+        "expected_failures": 0, 
+        "errors": 0, 
+        "failures": 1, 
+        "description": ""
+      }
+    }
+  ], 
+  "devices": [], 
+  "call_manager": {
+    "media": {
+      "failed": 0
+    }
+  }, 
+  "tng": {
+    "python_version": "2.7.15+ (default, Nov 27 2018, 23:36:35)  [GCC 7.3.0]", 
+    "setupfile": null, 
+    "version": "v3.7.16-72-g6b36c2333", 
+    "runfile": "test_calc.py", 
+    "date": "2019-07-23 22:09:33 +0000", 
+    "defines": {}
+  }, 
+  "applitools": null
+}

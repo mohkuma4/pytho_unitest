@@ -1,0 +1,84 @@
+{
+  "loggers": [
+    "TestFramework"
+  ], 
+  "metadata_version": 3, 
+  "test_summary": {
+    "unexpected_successes": 0, 
+    "skipped": 0, 
+    "successes": 3, 
+    "start_time": 1565101903.790011, 
+    "expected_failures": 0, 
+    "errors": 0, 
+    "stop_time": 1565101903.806147, 
+    "failures": 0, 
+    "total": 3
+  }, 
+  "testcases": [
+    {
+      "TestCaseInfo": {
+        "unexpected_successes": 0, 
+        "tests": [
+          {
+            "TestInfo": {
+              "code": "    def test_add(self):\n        self.assertEqual(calc.add(10, 5), 15)\n", 
+              "name": "test_add", 
+              "traceback": null, 
+              "stop": 1565101903.79347, 
+              "start": 1565101903.790281, 
+              "result": "success", 
+              "images": [], 
+              "description": ""
+            }
+          }, 
+          {
+            "TestInfo": {
+              "code": "    def test_divide(self):\n        self.assertEqual(calc.divide(10, 5), 2)\n", 
+              "name": "test_divide", 
+              "traceback": null, 
+              "stop": 1565101903.803177, 
+              "start": 1565101903.801383, 
+              "result": "success", 
+              "images": [], 
+              "description": ""
+            }
+          }, 
+          {
+            "TestInfo": {
+              "code": "    def test_multiply(self):\n        self.assertEqual(calc.multiply(10, 5), 50)\n", 
+              "name": "test_multiply", 
+              "traceback": null, 
+              "stop": 1565101903.805513, 
+              "start": 1565101903.803654, 
+              "result": "success", 
+              "images": [], 
+              "description": ""
+            }
+          }
+        ], 
+        "skipped": 0, 
+        "name": "SingleFileTestScript", 
+        "successes": 3, 
+        "expected_failures": 0, 
+        "errors": 0, 
+        "failures": 0, 
+        "description": ""
+      }
+    }
+  ], 
+  "devices": [], 
+  "call_manager": {
+    "media": {
+      "failed": 0
+    }
+  }, 
+  "tng": {
+    "python_version": "2.7.15+ (default, Nov 27 2018, 23:36:35)  [GCC 7.3.0]", 
+    "setupfile": null, 
+    "version": "v3.7.16-72-g6b36c2333", 
+    "runfile": "test_calc.py", 
+    "date": "2019-07-23 22:09:33 +0000", 
+    "defines": {}
+  }, 
+  "applitools": null
+}
